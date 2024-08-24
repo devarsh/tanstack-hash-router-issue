@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { waitFor } from "../util";
 
 export const Route = createFileRoute("/")({
   component: IndexComponent,
-  loader: async () => {
-    await new Promise<void>((resolve) => {
-      setTimeout(resolve, 3000);
-    });
+  loader: () => {
+    return waitFor(1000);
   },
   pendingComponent: () => (
     <div className="p-2">

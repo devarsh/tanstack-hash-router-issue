@@ -1,10 +1,9 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { waitFor } from "../util";
 
 async function beforeLoad() {
-  await new Promise<any>((resolve) => {
-    setTimeout(resolve, 5000);
-  });
+  return waitFor(2000);
 }
 
 function pendingComponent() {
