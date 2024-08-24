@@ -1,25 +1,23 @@
-import * as React from 'react';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/')({
-  component: HomeComponent,
+export const Route = createFileRoute("/")({
+  component: IndexComponent,
   loader: async () => {
     await new Promise<void>((resolve) => {
       setTimeout(resolve, 3000);
-      console.log('done child');
     });
   },
   pendingComponent: () => (
-    <div className='p-2'>
-      <h3>loading......</h3>
+    <div className="p-2">
+      <h3>Loading Index...</h3>
     </div>
   ),
 });
 
-function HomeComponent() {
+function IndexComponent() {
   return (
-    <div className='p-2'>
-      <h3>Welcome Home!</h3>
+    <div className="p-2">
+      <h3>Hello /!</h3>
     </div>
   );
 }
